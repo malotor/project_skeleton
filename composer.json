@@ -1,0 +1,19 @@
+{
+    "name": "malotor/skeleton",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Manel",
+            "email": "malotor@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "malotor\\Skeleton\\": "src/"
+        }
+    },
+    "require": {}
+}
