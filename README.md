@@ -17,8 +17,20 @@ A Skeleton project for working on
 ## Run the tests
 
     $ docker-composer run phpunit
+
+## 
+
+    $ docker-compose run app /bin/ash
     
 ## App
 
 http://localhost:8080
     
+ 
+## Documentations
+
+- https://blog.jetbrains.com/phpstorm/2016/11/docker-remote-interpreters/
+- https://www.jetbrains.com/help/phpstorm/2016.1/configuring-php-namespaces-in-a-project.html
+- https://sandro-keil.de/blog/2015/10/05/docker-php-xdebug-cli-debugging/
+- https://gist.github.com/chadrien/c90927ec2d160ffea9c4
+- https://medium.com/@pablofmorales/xdebug-with-docker-and-phpstorm-786da0d0fad2

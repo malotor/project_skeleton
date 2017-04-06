@@ -3,29 +3,37 @@ version: '2'
 
 services:
 
-  app:
-      build: ./build/php
-      container_name: app
-      command: php -S app:80 -t public/ public/app.php
-      working_dir: /code
-      volumes:
-        - "$PWD:/code"
-      ports:
-          - "8080:80"
-      environment:
-          - APP_ENV=dev
+    app:
+        build: ./build/php
+        container_name: app
+        command: php -S app:80 -t public/ public/app.php
+        working_dir: /code
+        volumes:
+            - "$PWD:/code"
+        ports:
+            - "8080:80"
+        environment:
+            #PHP_IDE_CONFIG: serverName=app
+            XDEBUG_CONFIG: remote_host=192.168.1.100
+            XDEBUG_CONFIG: idekey=PHPSTORM
+            APP_ENV: dev
 
-  phpunit:
-      build: ./build/php
-      container_name: phpunit
-      command: vendor/bin/phpunit
-      working_dir: /code
-      volumes:
-        - "$PWD:/code"
-  composer:
-      build: ./build/php
-      container_name: composer
-      command: composer install
-      working_dir: /code
-      volumes:
-        - "$PWD:/code"
+    phpunit:
+        build: ./build/php
+        container_name: phpunit
+        command: vendor/bin/phpunit
+        working_dir: /code
+        volumes:
+            - "$PWD:/code"
+        environment:
+            #PHP_IDE_CONFIG: serverName=app
+            XDEBUG_CONFIG: remote_host=192.168.1.100
+            XDEBUG_CONFIG: idekey=PHPSTORM
+
+    composer:
+        build: ./build/php
+        container_name: composer
+        command: composer install
+        working_dir: /code
+        volumes:
+            - "$PWD:/code"
