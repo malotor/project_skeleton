@@ -11,7 +11,7 @@ A Skeleton project for working on
     $ composer create-project malotor/skeleton my_project dev-master
     $ cd my_project
     $ docker-compose build
-    $ docker-compose run composer
+    $ docker-compose run composer install
     $ docker-compose up -d app
     
 ## Run the tests
@@ -34,3 +34,4 @@ http://localhost:8080
 - https://sandro-keil.de/blog/2015/10/05/docker-php-xdebug-cli-debugging/
 - https://gist.github.com/chadrien/c90927ec2d160ffea9c4
 - https://medium.com/@pablofmorales/xdebug-with-docker-and-phpstorm-786da0d0fad2
+- https://mhdzaherghaibeh.name/2016/09/25/debug-your-php-with-docker-and-xdebug-from-phpstorm/

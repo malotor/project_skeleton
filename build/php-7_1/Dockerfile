@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-alpine
+FROM php:7.1-alpine
 MAINTAINER Manel López  <malotor@gmail.com>
 ARG remote_host
 
