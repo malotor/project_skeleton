@@ -1,5 +1,6 @@
-FROM php:7.0-fpm-alpine
+FROM php:7.1-alpine
 MAINTAINER Manel López  <malotor@gmail.com>
+ARG remote_host
 
 RUN apk update \
     && apk add  --no-cache git mysql-client curl libmcrypt libmcrypt-dev \
@@ -9,12 +10,15 @@ RUN apk update \
     && docker-php-ext-enable xdebug redis \
     && docker-php-source delete \
     && docker-php-ext-install mcrypt pdo_mysql soap \
-    && echo "xdebug.remote_enable=on\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.remote_autostart=off\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.remote_port=9000\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.remote_handler=dbgp\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.remote_connect_back=0\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_handler=dbgp" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_connect_back=0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_host=$remote_host" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && rm -rf /tmp/*
 
 WORKDIR /code
+
+EXPOSE 9000
