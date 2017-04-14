@@ -8,7 +8,7 @@ A Skeleton project for working on
 
 ## Start the project
 
-    $ composer create-project malotor/skeleton my_project dev-master
+    $ composer create-project --no-install malotor/skeleton my_project dev-master
     $ cd my_project
     $ docker-compose build
     $ docker-compose run --rm composer install
@@ -18,16 +18,16 @@ A Skeleton project for working on
 
     $ docker-compose run --rm phpunit
 
-## 
+## Open interactive shell
 
     $ docker-compose run app /bin/ash
     
 ## App
 
 http://localhost:8080
-    
+
  
-## Documentations
+## References
 
 - https://blog.jetbrains.com/phpstorm/2016/11/docker-remote-interpreters/
 - https://www.jetbrains.com/help/phpstorm/2016.1/configuring-php-namespaces-in-a-project.html
@@ -36,3 +36,4 @@ http://localhost:8080
 - https://medium.com/@pablofmorales/xdebug-with-docker-and-phpstorm-786da0d0fad2
 - https://mhdzaherghaibeh.name/2016/09/25/debug-your-php-with-docker-and-xdebug-from-phpstorm/
 - http://binary-data.github.io/2016/06/15/running-integration-tests-phpstorm-phpunit-docker/
+- http://obrown.io/2015/12/23/phpunit-docker-phpstorm.html
