@@ -26,6 +26,22 @@ A Skeleton project for working on
 
 http://localhost:8080
 
+# Phpstorm configuration
+
+### Server config
+
+![PHPStorm Server configuration](./docs/server_config.png)
+
+### DBGp config
+
+![PHPStorm DBGp configuration](./docs/DBGP_config.png)
+
+### PHP Interpreter config
+![PHPStorm Interpreter configuration](./docs/interpreter_config.png)
+
+### PHPUnit config
+![PHPStorm PHPUNIT configuration](./docs/phpunit_config.png)
+ 
  
 ## References
 
@@ -37,3 +53,4 @@ http://localhost:8080
 - https://mhdzaherghaibeh.name/2016/09/25/debug-your-php-with-docker-and-xdebug-from-phpstorm/
 - http://binary-data.github.io/2016/06/15/running-integration-tests-phpstorm-phpunit-docker/
 - http://obrown.io/2015/12/23/phpunit-docker-phpstorm.html
+- https://www.jetbrains.com/help/phpstorm/2017.1/configuring-code-coverage-measurement.html
