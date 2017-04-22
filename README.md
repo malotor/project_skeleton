@@ -12,21 +12,28 @@ A Skeleton project for working on
     $ cd my_project
     $ docker-compose build
     $ docker-compose run --rm composer install
+    
+## Run the app
+    
     $ docker-compose up -d app
+    
+## Run a script
+    
+    $ sh scripts/run_docker.sh php bin/myscript
     
 ## Run the tests
 
-    $ docker-compose run --rm phpunit
+    $ sh scripts/phpunit_docker.sh --converage-html ./coverage
 
 ## Open interactive shell
 
     $ docker-compose run app /bin/ash
     
-## App
+## Web application
 
-http://localhost:8080
+    http://localhost:8080
 
-# Phpstorm configuration
+# Phpstorm Xdebug configuration
 
 ### Server config
 
