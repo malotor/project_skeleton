@@ -43,11 +43,12 @@ Edit docker-compose.yml and replace "remote_host" IP with your current IP.
     
 ## Run a script
     
-    $ sh scripts/run.sh php bin/myscript
+    $ sh scripts/run php bin/myscript
     
 ## Run the tests
 
-    $ sh scripts/phpunit.sh --converage-html ./coverage
+    $ docker-compose up -d tests
+    $ sh scripts/phpunit --converage-html ./coverage
 
     
 ## Web application
