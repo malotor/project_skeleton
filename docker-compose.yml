@@ -6,8 +6,6 @@ services:
     app:
         build:
             context: ./build/php
-            args:
-                remote_host : 192.168.1.100
         container_name: app
         command: php -S app:80 -t public/ public/app.php
         working_dir: /code
@@ -16,22 +14,21 @@ services:
         ports:
             - "8080:80"
         environment:
-            - APP_ENV=dev
-            - PHP_IDE_CONFIG="serverName=app"
+            APP_ENV: dev
+            XDEBUG_CONFIG: remote_host=192.168.1.100
+            PHP_IDE_CONFIG: serverName=app
 
-    phpunit:
+    tests:
         build:
             context: ./build/php
-            args:
-                remote_host : 192.168.33.100
-        container_name: phpunit
-        entrypoint:
-            - vendor/bin/phpunit
+        container_name: tests
+        command: sleep 100d
         working_dir: /code
-        volumes_from:
-            - app
+        volumes:
+            - "$PWD:/code"
         environment:
-            - PHP_IDE_CONFIG="serverName=app"
+            XDEBUG_CONFIG: remote_host=192.168.1.100
+            PHP_IDE_CONFIG: serverName=app
 
     composer:
         build:
@@ -42,5 +39,5 @@ services:
         working_dir: /code
         entrypoint:
           - composer
-        volumes_from:
-            - app
+        volumes:
+          - "$PWD:/code"

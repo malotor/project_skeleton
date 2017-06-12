@@ -1,10 +1,7 @@
 <?php
+
 namespace malotor\Skeleton;
 
-/**
- * Class Adder
- * @package Kata
- */
 class Adder
 {
     /**

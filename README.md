@@ -5,11 +5,35 @@ A Skeleton project for working on
 - PHP7
 - Phpunit 6
 - Docker
+- PHPSTORM
 
-## Start the project
+
+## Create the project
 
     $ composer create-project --no-install malotor/skeleton my_project dev-master
     $ cd my_project
+    
+## Setup
+
+Edit docker-compose.yml and replace "remote_host" IP with your current IP.
+
+    app:
+        build:
+            context: ./build/php
+        container_name: app
+        command: php -S app:80 -t public/ public/app.php
+        working_dir: /code
+        volumes:
+            - "$PWD:/code"
+        ports:
+            - "8080:80"
+        environment:
+            APP_ENV: dev
+            XDEBUG_CONFIG: remote_host=<YOUR CURRENT IP>  #Set your current IP here
+            PHP_IDE_CONFIG: serverName=app
+
+## Start the project
+
     $ docker-compose build
     $ docker-compose run --rm composer install
     
@@ -19,15 +43,12 @@ A Skeleton project for working on
     
 ## Run a script
     
-    $ sh scripts/run_docker.sh php bin/myscript
+    $ sh scripts/run.sh php bin/myscript
     
 ## Run the tests
 
-    $ sh scripts/phpunit_docker.sh --converage-html ./coverage
+    $ sh scripts/phpunit.sh --converage-html ./coverage
 
-## Open interactive shell
-
-    $ docker-compose run app /bin/ash
     
 ## Web application
 
