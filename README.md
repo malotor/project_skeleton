@@ -12,6 +12,10 @@ A Skeleton project for working on
 
     $ composer create-project --no-install malotor/skeleton my_project dev-master
     $ cd my_project
+
+If you don´t have PHP or composer installed in your machine, you could use:
+
+    $ docker run --rm -v $(pwd):/app composer/composer create-project --no-install malotor/skeleton my_project dev-master
     
 ## Setup
 
