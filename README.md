@@ -1,5 +1,7 @@
 # Project Skeleton
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A Skeleton project for working on
 
 - PHP7
