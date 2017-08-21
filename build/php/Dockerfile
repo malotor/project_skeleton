@@ -1,6 +1,5 @@
 FROM php:7.1-alpine
 MAINTAINER Manel López  <malotor@gmail.com>
-ARG remote_host
 
 RUN apk update \
     && apk add  --no-cache git mysql-client curl libmcrypt libmcrypt-dev \
@@ -16,9 +15,8 @@ RUN apk update \
     && echo "xdebug.remote_handler=dbgp" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && rm -rf /tmp/*
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 WORKDIR /code
 

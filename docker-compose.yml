@@ -15,26 +15,12 @@ services:
             - "8080:80"
         environment:
             APP_ENV: dev
-            XDEBUG_CONFIG: remote_host=192.168.1.100
-            PHP_IDE_CONFIG: serverName=app
-
-    tests:
-        build:
-            context: ./build/php
-        container_name: tests
-        command: sleep 100d
-        working_dir: /code
-        volumes:
-            - "$PWD:/code"
-        environment:
-            XDEBUG_CONFIG: remote_host=192.168.1.100
-            PHP_IDE_CONFIG: serverName=app
+            XDEBUG_CONFIG: remote_host=${REMOTE_HOST}
+            PHP_IDE_CONFIG: serverName=${SERVER_NAME}
 
     composer:
         build:
             context: ./build/php
-            args:
-                remote_host : 192.168.33.100
         container_name: composer
         working_dir: /code
         entrypoint:

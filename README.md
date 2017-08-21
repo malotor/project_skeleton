@@ -21,24 +21,9 @@ If you don´t have PHP or composer installed in your machine, you could use:
     
 ## Setup
 
-Edit docker-compose.yml and replace "remote_host" IP with your current IP.
+* Move .env_example file to .env
+* Replace replace <YOUR_IP> with your current host IP
 
-    app:
-        build:
-            context: ./build/php
-        container_name: app
-        command: php -S app:80 -t public/ public/app.php
-        working_dir: /code
-        volumes:
-            - "$PWD:/code"
-        ports:
-            - "8080:80"
-        environment:
-            APP_ENV: dev
-            XDEBUG_CONFIG: remote_host=<YOUR CURRENT IP>  #Set your current IP here
-            PHP_IDE_CONFIG: serverName=app
-
-## Start the project
 
     $ docker-compose build
     $ docker-compose run --rm composer install
